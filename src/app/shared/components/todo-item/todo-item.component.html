@@ -1,0 +1,3 @@
+<div class="flex flex-row my-2" [formGroup]="itemFormGroup" >
+  <p-checkbox [binary]="true" [label]="item.title" [labelStyleClass]="itemFormGroup.get('completed')?.value ? 'line-through' : ''" [formControlName]="'completed'" class="mr-2"></p-checkbox>
+</div>

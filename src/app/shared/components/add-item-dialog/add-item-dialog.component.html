@@ -1,0 +1,8 @@
+<div class="flex flex-column">
+  <span [formGroup]="itemForm" class="p-float-label my-4">
+    <input pInputText id="text" [formControlName]="'text'"/>
+    <label htmlFor="text">text</label>
+  </span>
+
+  <button pButton label="Submit" (click)="submit()"></button>
+</div>
