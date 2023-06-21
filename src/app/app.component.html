@@ -1,8 +1,17 @@
 <h1>TODO LIST</h1>
-<p-button label="Add" icon="pi pi-plus" (onClick)="openDialog()"/>
+<div *ngIf="!(itemsFacade.itemsPending$ | async)">
+  <p-button label="Add" icon="pi pi-plus" (onClick)="openDialog()"/>
 
-<p-card>
-  <ng-container *ngFor="let item of todoService.items$ | async">
-    <td-todo-item [item]="item"/>
-  </ng-container>
-</p-card>
+  <p-card>
+    <ng-container *ngFor="let item of itemsFacade.items$ | async">
+      <td-todo-item [item]="item"/>
+    </ng-container>
+  </p-card>
+</div>
+
+<div *ngIf="itemsFacade.itemsPending$ | async">
+  <p-card>
+    <p-progressSpinner></p-progressSpinner>
+  </p-card>
+</div>
+
